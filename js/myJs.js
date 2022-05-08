@@ -1,17 +1,13 @@
 const textConfig = {
   text1: "He luu cậu!",
-  text2: "Tớ có điều này muốn hỏi cậu nhớ phải trả lời thật lòng nhaaa.",
-  text3: "Cậu yêu tớ có phải không nào ._.",
-  text4: "Nếu cậu ko trả lời mà thoát ra tức là muốn làm vợ tớ rùi đó nha :v",
-  text5: "Cậu mơ à???",
-  text6: "Yêu ơi là yêu <3",
-  text7: "lí do cậu thích tớ đi :vvvv",
-  text8: "Gửi cho tớ <3",
-  text9: "Vì cậu đẹp try vlllll",
+  text2: "Tớ có điều này muốn nói",
+  text3: "Tớ thíchhhhhhhhhh cậu :))))",
+  text4: "Cậu làm người yêu tớ nhaaaaaaa ?",
+  text5: "Không :))",
+  text6: "Nhấn vào đây để đồng ý <3",
+  text7: "Vậy cuối tuần sau đi chơi nhớ  :))",
+  text8: "Oke",
   text10: "Tớ biết mà ^^ Yêu cậu 300.000",
-  text11:
-    "Tối nay tớ qua đón cậu đi chơi nhaa :v Còn giờ thì chờ gì nữa mà ko inbox cho tớ đi nàooo",
-  text12: "Okii lunn <3",
 };
 
 $(document).ready(function () {
@@ -35,7 +31,7 @@ $(document).ready(function () {
     Swal.fire({
       title: textConfig.text1,
       text: textConfig.text2,
-      imageUrl: "img/cuteCat.jpg",
+      imageUrl: "img/face.jpg",
       imageWidth: 300,
       imageHeight: 300,
       background: '#fff url("img/iput-bg.jpg")',
@@ -48,6 +44,7 @@ $(document).ready(function () {
   // switch button position
   function switchButton() {
     var audio = new Audio("sound/duck.mp3");
+    audio.volume = 0.3;
     audio.play();
     var leftNo = $("#no").css("left");
     var topNO = $("#no").css("top");
@@ -60,7 +57,8 @@ $(document).ready(function () {
   }
   // move random button póition
   function moveButton() {
-    var audio = new Audio("sound/Swish1.mp3");
+    var audio = new Audio("sound/duck.mp3");
+    audio.volume = 0.3;
     audio.play();
     if (screen.width <= 600) {
       var x = Math.random() * 300;
@@ -86,24 +84,6 @@ $(document).ready(function () {
   });
 
   // generate text in input
-  function textGenerate() {
-    var n = "";
-    var text = " " + textConfig.text9;
-    var a = Array.from(text);
-    var textVal = $("#txtReason").val() ? $("#txtReason").val() : "";
-    var count = textVal.length;
-    if (count > 0) {
-      for (let i = 1; i <= count; i++) {
-        n = n + a[i];
-        if (i == text.length + 1) {
-          $("#txtReason").val("");
-          n = "";
-          break;
-        }
-      }
-    }
-    $("#txtReason").val(n);
-  }
 
   // show popup
   $("#yes").click(function () {
@@ -114,7 +94,7 @@ $(document).ready(function () {
       html: true,
       width: 900,
       padding: "3em",
-      html: "<input type='text' class='form-control' id='txtReason'  placeholder='Whyyy'>",
+      html: "<span><3</span>",
       background: '#fff url("img/iput-bg.jpg")',
       backdrop: `
                     rgba(0,0,123,0.4)
@@ -129,19 +109,7 @@ $(document).ready(function () {
       cancelButtonColor: "#f6cd61",
       confirmButtonText: textConfig.text8,
     }).then((result) => {
-      if (result.value) {
-        Swal.fire({
-          width: 900,
-          confirmButtonText: textConfig.text12,
-          background: '#fff url("img/iput-bg.jpg")',
-          title: textConfig.text10,
-          text: textConfig.text11,
-          confirmButtonColor: "#83d0c9",
-          onClose: () => {
-            window.location = "http://fb.com";
-          },
-        });
-      }
+      window.location = "http://fb.com";
     });
 
     $("#txtReason").focus(function () {
